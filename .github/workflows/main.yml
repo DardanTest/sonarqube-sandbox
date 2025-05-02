@@ -11,6 +11,7 @@ jobs:
   analyze:
     name: SonarCloud Scan
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -27,8 +28,6 @@ jobs:
           pip install -r requirements.txt || true
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+        uses: SonarSource/sonarqube-scan-action@v5.0.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_ORGANIZATION: dardanbici
-          SONAR_PROJECT_KEY: dardanbici_python-flask-demo
